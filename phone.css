@@ -1,0 +1,18 @@
+@media (max-width:600px) {
+    #showScore {
+        background-color: rgb(10, 63, 31);
+        border: 1px  white;
+        height: 50px;
+        width: 200px;
+        margin-left: 100px;
+        border-radius: 15px;
+        box-shadow: 1fr 1fr 1fr 1fr;
+        padding: 10px;
+        
+        
+        
+        
+    }
+    
+    
+}
