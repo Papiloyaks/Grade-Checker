@@ -4,117 +4,90 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GradeChecker</title>
-    <style>
-        #showScore {
-            background-color: blueviolet;
-            border: 1px solid white;
-            height: 50px;
-            width: 500px;
-            margin-left: 500px;
-            border-radius: 15px;
-            box-shadow: 3fr 3fr 3fr 3fr;
-            
-        }
-    </style>
-    
+    <title>Grading System</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 </head>
-<body class="ms-2 me-2 bg-success-subtle">
+<body id="body" class="ms-2 me-2">
     <div class="col-lg-7 col-md-7 col-sm-9 mt-lg-4 mt-md-4 mt-sm-2 mx-auto shadow p-4 rounded-10">
-        <h1 class="text-center text-decoration-underline md-4">Grade Checker</h1>
+        <h1 id="hONE" class="text-center text-decoration-underline md-4 mt-5">Grading System</h1>
         <div class="form-group my-2">
             <input type="number" placeholder="Input your score" id="score" class="form-control shadow-sm p-2">
         </div>
         <div class="form-group my-4">
             <button class="btn btn-primary w-100" onclick="checkScore()">Check</button>
         </div>
+        <div class="text-center" id="showScore"></div>
     </div>
-    <div class="mt-5 text-center" id="showScore"></div>
+    <!-- <div class="text-center" id="showScore"></div> -->
 
 
     <script>
         function checkScore() {
+            var songFailed = new Audio("Audio/failure.mp3")
             // alert("I am working")
             var score = document.getElementById("score").value;
             if (score >= 0 && score <= 39) {
                 // alert("You failed")
-                var result = "FAIL";
+                var result = "FAILED";
                 showScore.innerHTML = result;
-                showScore.style.color = "red";
+                showScore.style.color = "aqua";
+                songFailed.play()                
 
-                
-                
-            }
-            
-            if (score >= 40 && score <= 44) {
+            }  
+            else if (score >= 40 && score <= 44) {
+                var songPass = new Audio("Audio/pass.mp3")
                 var result = "PASS"
                 showScore.innerHTML = result;
-                showScore.style.color= "red";
+                showScore.style.color= "aqua";
+                songPass.play()
             }
+            
+            // if (score >= 40 && score <= 44) {
+            //     var result = "PASS"
+            //     showScore.innerHTML = result;
+            //     showScore.style.color= "red";
+            // }
 
-                if(score >= 45 && score <= 49) 
-               // alert("You failed")
+                else if(score >= 45 && score <= 49) {
+               // alert("test")
+                var songAverage = new Audio("Audio/average.mp3")
                 var result = "AVERAGE";
                 showScore.innerHTML = result;
-                showScore.style.color = "red";
+                showScore.style.color = "white";
+                songAverage.play()
+                }
 
-                if(score >= 50 && score <= 59) 
-               // alert("You failed")
+                else if(score >= 50 && score <= 59) {
+               // alert("test")
+                var songCredit = new Audio("Audio/wow.mp3");
                 var result = "CREDIT";
                 showScore.innerHTML = result;
-                showScore.style.color = "red";
+                showScore.style.color = "aqua";
+                songCredit.play();
+                }
 
-                if(score >= 60 && score <= 69) 
-               // alert("You failed")
+                else if(score >= 60 && score <= 69) {
+               // alert("test")
+                var songGood = new Audio("Audio/like that.mp3");
                 var result = "GOOD";
                 showScore.innerHTML = result;
-                showScore.style.color = "red";
+                showScore.style.color = "aqua";
+                songGood.play();
+                }
 
-                if(score >= 70 && score <= 100) 
-               // alert("You failed")
+                if(score >= 70 && score <= 100) {
+               // alert("test")
+                var songExellent = new Audio("Audio/excellect.mp3");
                 var result = "EXCELLENT";
                 showScore.innerHTML = result;
-                showScore.style.color = "red";
+                showScore.style.color = "white";
+                songExellent.play();
+                }
         
         
         }
-
-        // function checkScore() {
-        //     var score = document.getElementById("score").value;
-        //     if (score >= 45 && score <= 49) 
-        //         // alert("You failed")
-        //         var result = "AVERAGE";
-        //         showScore.innerHTML = result;
-        //         showScore.style.color = "red";
-        // }
-
-        // function checkScore() {
-        //     var score = document.getElementById("score").value;
-        //     if (score >= 50 && score <= 59) 
-        //         // alert("You failed")
-        //         var result = "CREDIT";
-        //         showScore.innerHTML = result;
-        //         showScore.style.color = "red";
-        // }
-
-        // function checkScore() {
-        //     var score = document.getElementById("score").value;
-        //     if (score >= 60 && score <= 69) 
-        //         // alert("You failed")
-        //         var result = "GOOD";
-        //         showScore.innerHTML = result;
-        //         showScore.style.color = "red";
-        // }
-
-        // function checkScore() {
-        //     var score = document.getElementById("score").value;
-        //     if (score >= 70 && score <= 100) 
-        //         // alert("You failed")
-        //         var result = "EXCELLENT";
-        //         showScore.innerHTML = result;
-        //         showScore.style.color = "red";
-        // }
-        
     </script>
+    </html>
+    </body>
